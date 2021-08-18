@@ -27,14 +27,14 @@ const ingredients = [
 
 //   return listEl;
 // });
+const listEl = document.querySelector('#ingredients');
 
 const makeItemEl = (ingredients) => {
   return ingredients.map((ingredient) => {
-    const listEl = document.querySelector('#ingredients');
-    console.log(listEl);
     const listItemEl = document.createElement('li');
-    console.log(listItemEl);
-    const addItemEl = listEl.appendChild(listItemEl);
-    addItemEl.textContent = ingredient;
+    listItemEl.textContent = ingredient;
+    return listItemEl;
   });
 };
+
+listEl.append(...makeItemEl(ingredients));

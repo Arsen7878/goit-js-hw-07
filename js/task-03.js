@@ -67,13 +67,17 @@ const images = [
 //   );
 // });
 
-const makeImageEl = (images) => {
+const galleryRef = document.querySelector('#gallery');
+
+const makeImageRef = (images) => {
   return images.map((image, index, array) => {
-    listEl.insertAdjacentHTML('beforeend', '<li class = "item">');
-    const listItemEl = document.querySelectorAll('.item');
-    listItemEl[index].insertAdjacentHTML(
+    const itemGalleryRef = document.createElement('li');
+    itemGalleryRef.insertAdjacentHTML(
       'beforeend',
-      `<img src ="${array[index].url}" alt="${array[index].alt}" width = 320>`
+      `<img src =${array[index].url} alt=${array[index].alt} width = 320>`
     );
+    return itemGalleryRef;
   });
 };
+console.log(makeImageRef(images));
+galleryRef.append(...makeImageRef(images));
