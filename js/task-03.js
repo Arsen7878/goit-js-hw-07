@@ -70,14 +70,15 @@ const images = [
 const galleryRef = document.querySelector('#gallery');
 
 const makeImageRef = (images) => {
-  return images.map((image, index, array) => {
+  return images.map((image) => {
     const itemGalleryRef = document.createElement('li');
+
     itemGalleryRef.insertAdjacentHTML(
       'beforeend',
-      `<img src =${array[index].url} alt=${array[index].alt} width = 320>`
+      `<img src =${image.url} alt=${image.alt} width = 320 class= images>`
     );
     return itemGalleryRef;
   });
 };
-console.log(makeImageRef(images));
+
 galleryRef.append(...makeImageRef(images));
