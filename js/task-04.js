@@ -1,17 +1,21 @@
+const options = {
+  valueRef: document.querySelector('#value'),
+  btnIncrementEl: document.querySelector('[data-action="increment"]'),
+  btnDecrementEl: document.querySelector('[data-action="decrement"]'),
+};
+
+const { valueRef, btnIncrementEl, btnDecrementEl } = options;
+
 let counterValue = 0;
 
 const increment = () => {
-  const a = document.querySelector('#value');
   counterValue += 1;
-  a.textContent = counterValue;
+  valueRef.textContent = counterValue;
 };
 const decrement = () => {
-  const a = document.querySelector('#value');
   counterValue -= 1;
-  a.textContent = counterValue;
+  valueRef.textContent = counterValue;
 };
 
-const btnIncrementEl = document.querySelector('[data-action="increment"]');
-const btnDecrementEl = document.querySelector('[data-action="decrement"]');
 btnIncrementEl.addEventListener('click', increment);
 btnDecrementEl.addEventListener('click', decrement);

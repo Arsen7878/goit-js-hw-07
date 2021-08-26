@@ -8,7 +8,7 @@ const options = {
 const { inputRef, destroyRef, renderRef, boxesRef } = options;
 const createBoxes = (amount) => {
   amount = inputRef.value;
-
+  destroyBoxes();
   for (let i = 0; i < amount; i += 1) {
     boxesRef.insertAdjacentHTML('beforeend', '<div></div>');
     const divRef = document.querySelectorAll('#boxes div');

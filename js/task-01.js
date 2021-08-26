@@ -1,21 +1,22 @@
-const amountCategoryEl = document.querySelector('#categories').children.length;
+const options = {
+  amountCategoryEl: document.querySelector('#categories').children.length,
+  itemsRef: document.querySelectorAll('.item'),
+  listsRef: document.querySelectorAll('li ul'),
+  titlesRef: document.querySelectorAll(`li h2`),
+};
+
+const { amountCategoryEl, itemsRef, listsRef, titlesRef } = options;
+
 console.log(`В списке ${amountCategoryEl} категории(й).`);
 
-const findCategoryEl = (selector, index) => {
-  const categoryEl = document.querySelectorAll(selector)[index].textContent;
-  return `Категория: ${categoryEl}`;
+const c = () => {
+  for (let i = 0; i < itemsRef.length; i += 1) {
+    const titleTextRef = titlesRef[i].textContent;
+    const listLengthRef = listsRef[i].children.length;
+
+    console.log(`Категория: ${titleTextRef}`);
+    console.log(`Количество элементов: ${listLengthRef}`);
+  }
 };
 
-const amountItemEl = (selector, index) => {
-  const amountEl = document.querySelectorAll(selector)[index].children.length;
-  return `Количество элементов: ${amountEl}`;
-};
-
-console.log(findCategoryEl('h2', 0));
-console.log(amountItemEl('.item>ul', 0));
-
-console.log(findCategoryEl('h2', 1));
-console.log(amountItemEl('.item>ul', 1));
-
-console.log(findCategoryEl('h2', 2));
-console.log(amountItemEl('.item>ul', 2));
+c();
